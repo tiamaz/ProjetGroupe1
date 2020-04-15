@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if(@Model.clasPubVM.Count() > 0)
+{
+
+@foreach(var item in Model.clasPubVM)
+{
+<div class="card">
+  <div class="card-header">
+      @item.classe
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">@item.publication.DatePublication</h5>
+    <p class="card-text">@item.publication.Contenu</p>
+  </div>
+</div>
+
+}
+}
+
+else{
+<div class="card">
+  <div class="card-header">
+        <h5>M. @User.Identity.Name</h5>
+  </div>
+  <div class="card-body">
+    
+    <p class="card-text">Vous n'avez aucune publication</p>
+  </div>
+</div>
+}
