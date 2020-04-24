@@ -2,3 +2,75 @@
 @model ProjetGroupe1.Pages.Classes.IndexModel
 @{
 }
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+
+        </div>
+
+        <div class="col-4">
+            <a class="btn btn-primary" asp-page="Ajouter">Créer une classe</a>
+        </div>
+    </div>
+</div>
+
+@if(Model.classes.Count() > 0)
+{
+<table class="table table-striped">
+
+    <tr class="table-secondary">
+        <th>
+            <label asp-for="classes.FirstOrDefault().Nom"></label>
+        </th>
+        <th>
+            <label asp-for="classes.FirstOrDefault().Filiere"></label>
+        </th>
+        <th>
+            <label asp-for="classes.FirstOrDefault().Niveau"></label>
+        </th>
+        <th>
+            <label asp-for="classes.FirstOrDefault().NombreEtudiant"></label>
+        </th>
+    </tr>
+
+
+
+    @foreach(var item in Model.classes)
+    {
+        
+        <tr>
+            <td>
+                @Html.DisplayFor(m => item.Nom)
+            </td>
+
+            <td>
+                @Html.DisplayFor(m => item.Filiere)
+            </td>
+
+            <td>
+                @Html.DisplayFor(m => item.Niveau)
+            </td>
+
+            <td>
+                @Html.DisplayFor(m => item.NombreEtudiant)
+            </td>
+        </tr>
+    
+    }
+
+</table>
+
+}
+
+else {
+    <div class="card">
+  <div class="card-header">
+        <h5>M. @User.Identity.Name</h5>
+  </div>
+  <div class="card-body">
+    
+    <p class="card-text">Vous n'avez aucune classe</p>
+  </div>
+</div>
+}

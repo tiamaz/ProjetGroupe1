@@ -9,6 +9,7 @@ namespace ProjetGroupe1.Model
         public int IdClasse { get; set; }
 
         [Required]
+        
         public string Nom { get; set; }
 
         [Required]
